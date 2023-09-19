@@ -1,7 +1,7 @@
 # slider-js
 
 
-- [Demo Project]()
+- [Demo Project]( https://parastoo-asgari.github.io/slider-js/)
 
 - Developed by parastoo asgari
   
