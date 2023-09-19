@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: rgb(17, 17, 17);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .slider {
+            position: relative;
+            width: 1100px;
+            height: 100vh;
+            white-space: nowrap;
+            overflow: hidden;
+
+        }
+
+        .slider .bus {
+            height: 100%;
+            display: flex;
+            transition: 1s;
+        }
+
+        .slider img {
+            width: 1100px;
+            height: 100vh;
+            object-fit: fill;
+        }
+
+        .slider span {
+            position: absolute;
+            color: rgb(99, 107, 107);
+            top: 45%;
+            cursor: pointer;
+            transition: 1s;
+
+        }
+
+        #left {
+            left: 1%;
+            font-size: 70px;
+        }
+
+        #right {
+            right: 1%;
+            font-size: 70px;
+        }
+    </style>
+</head>
+
+<body onload="_arrow()">
+    <div class="slider">
+        <div class="bus">
+
+            <img src="img/1.webp" alt="">
+            <img src="img/13.webp" alt="">
+            <img src="img/14.webp" alt="">
+            <img src="img/2.webp" alt="">
+            <img src="img/7.webp" alt="">
+            <img src="img/3.webp" alt="">
+            <img src="img/6.webp" alt="">
+            <img src="img/5.webp" alt="">
+            <img src="img/8.webp" alt="">
+            <img src="img/9.webp" alt="">
+
+
+        </div>
+        <span id="left" class="material-symbols-outlined">
+            arrow_back_ios_new
+        </span>
+        <span id="right" class="material-symbols-outlined">
+            arrow_forward_ios
+        </span>
+    </div>
+</body>
+
+
+<script>
+    let left = 0
+    let images = document.querySelectorAll('.bus img')
+    document.getElementsByClassName('bus')[0].style.width = ((images.length) * 1100) + 'px'
+    document.getElementById('right').addEventListener('click', () => {
+        left = left - 1100
+        document.querySelector('.bus').style.transform = 'translateX(' + left + 'px)'
+        _arrow()
+    })
+    document.getElementById('left').addEventListener('click', () => {
+        left = left + 1100
+        document.querySelector('.bus').style.transform = 'translateX(' + left + 'px)'
+        _arrow()
+    })
+
+    function _arrow() {
+        if (left == 0) {
+            document.getElementById('left').style.left = '-200px'
+        } else {
+            document.getElementById('left').style.left = '1%'
+
+        }
+        if (left <= ((images.length - 1) * (-1100))) {
+            document.getElementById('right').style.right = '-200px'
+        } else {
+            document.getElementById('right').style.right = '1%'
+
+        }
+    }
+
+</script>
+
+</html>
